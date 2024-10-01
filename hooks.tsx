@@ -137,7 +137,7 @@ export const useThumbFollower = (
 
   const transform = {transform: [{translateX: x}]};
   const follower = (
-    <Animated.View style={[transform, {opacity: forcedShowLabel ? 0 : isPressed ? 1 : 0}]}>
+    <Animated.View style={[transform, {opacity: forcedShowLabel ? 1 : isPressed ? 1 : 0}]}>
       <FollowerContainer
         onLayout={handleLayout}
         ref={contentContainerRef}

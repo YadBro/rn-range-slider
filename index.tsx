@@ -187,7 +187,7 @@ const Slider: React.FC<SliderProps> = ({
   const lowThumb = renderThumb('low');
   const highThumb = renderThumb('high');
 
-  const labelContainerProps = useLabelContainerProps(floatingLabel);
+  const labelContainerProps = useLabelContainerProps(!forcedShowLabel || floatingLabel);
 
   const {panHandlers} = useMemo(
     () =>
