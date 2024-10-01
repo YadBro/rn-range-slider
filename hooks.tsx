@@ -103,6 +103,7 @@ export const useThumbFollower = (
   renderContent: undefined | ((value: number) => ReactNode),
   isPressed: boolean,
   allowOverflow: boolean,
+  forcedShowLabel: boolean,
 ) => {
   const xRef = useRef(new Animated.Value(0));
   const widthRef = useRef(0);
@@ -136,7 +137,7 @@ export const useThumbFollower = (
 
   const transform = {transform: [{translateX: x}]};
   const follower = (
-    <Animated.View style={[transform, {opacity: isPressed ? 1 : 0}]}>
+    <Animated.View style={[transform, {opacity: forcedShowLabel ? 0 : isPressed ? 1 : 0}]}>
       <FollowerContainer
         onLayout={handleLayout}
         ref={contentContainerRef}
