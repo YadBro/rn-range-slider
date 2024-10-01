@@ -10,8 +10,8 @@ import Thumb from './components/BaseSliderThumb.component';
 import styles from './BaseSlider.style';
 
 export type BaseSliderProps = {
-  min?: number
-  max?: number
+  min: number
+  max: number
   onChangeLowValueHandler: (newLowValue: number) => void
   onChangeHighValueHandler: (newHighValue: number) => void
 } & Partial<SliderProps>
