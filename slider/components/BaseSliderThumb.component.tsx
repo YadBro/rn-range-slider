@@ -6,13 +6,17 @@ const THUMB_RADIUS_HIGH = 16;
 
 export type BaseSliderThumbProps = {
   name: 'low' | 'high'
-} & ViewProps
+  left?: ViewProps
+  right?: ViewProps
+}
 
-const BaseSliderThumb = ({name, ...props}: BaseSliderThumbProps) => {
+const BaseSliderThumb = ({name, left, right}: BaseSliderThumbProps) => {
   const styleRoot = name === 'high' ? styles.rootHigh : styles.rootLow
+  const containerCustomRoot = name === 'high' ? right : left
+
   return <View
-    {...props}
-    style={[styleRoot, props?.style]}
+    {...containerCustomRoot}
+    style={[styleRoot, containerCustomRoot?.style]}
   />;
 };
 
