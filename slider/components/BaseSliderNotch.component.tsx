@@ -5,7 +5,10 @@ export type BaseSliderNotchProps = ViewProps
 
 const BaseSliderNotch = (props: BaseSliderNotchProps) => {
   return (
-    <View style={styles.root} {...props}/>
+    <View
+      {...props}
+      style={[styles.root, props?.style]}
+    />
   );
 };
 

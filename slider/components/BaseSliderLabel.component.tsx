@@ -1,14 +1,23 @@
 import React, { memo } from 'react';
-import { View, Text, StyleSheet, ViewProps } from 'react-native';
+import { View, Text, StyleSheet, type ViewProps, type TextProps } from 'react-native';
 
 export type BaseSliderLabelProps = {
   text: string | React.JSX.Element
+  textProps?: TextProps
 } & ViewProps
 
-const BaseSliderLabel = ({ text, ...restProps }: BaseSliderLabelProps) => {
+const BaseSliderLabel = ({ text, textProps, ...restProps }: BaseSliderLabelProps) => {
   return (
-    <View style={styles.root} {...restProps}>
-      <Text style={styles.text}>{text}</Text>
+    <View
+    {...restProps}
+      style={[styles.root, restProps?.style]}
+    >
+      <Text
+        {...textProps}
+        style={[styles.text, textProps?.style]}
+      >
+        {text}
+      </Text>
     </View>
   );
 };

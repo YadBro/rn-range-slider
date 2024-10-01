@@ -1,18 +1,43 @@
 import React from 'react';
-import { GestureResponderEvent, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { GestureResponderEvent, StyleSheet, Text, TextProps, TouchableWithoutFeedback, type TouchableWithoutFeedbackProps, View } from 'react-native';
 
 export type TextButtonProps = {
   text: string | React.JSX.Element
-  containerStyle?: object,
   textStyle?: object,
+  touchableWithoutFeedbackProps?: TouchableWithoutFeedbackProps
+  containerProps?: TouchableWithoutFeedbackProps
+  textProps?: TextProps
   onPress: (event: GestureResponderEvent) => void | undefined
 }
 
-const TextButton = ({ text, containerStyle, textStyle, onPress }: TextButtonProps) => {
+const TextButton = ({
+  text,
+  touchableWithoutFeedbackProps,
+  containerProps,
+  textProps,
+  onPress
+}: TextButtonProps) => {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={{...styles.containerStyle, ...containerStyle}}>
-        <Text style={{...styles.textStyle, ...textStyle}}>{text}</Text>
+    <TouchableWithoutFeedback
+      {...touchableWithoutFeedbackProps}
+      onPress={onPress}
+    >
+      <View
+        {...containerProps}
+        style={[
+          styles.containerStyle,
+          containerProps?.style,
+        ]}
+      >
+        <Text
+          {...textProps}
+          style={[
+            styles.textStyle,
+            textProps?.style,
+          ]}
+        >
+          {text}
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );

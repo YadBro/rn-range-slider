@@ -1,15 +1,19 @@
 import React, {memo} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, type ViewProps} from 'react-native';
 
 const THUMB_RADIUS_LOW = 12;
 const THUMB_RADIUS_HIGH = 16;
 
 export type BaseSliderThumbProps = {
   name: 'low' | 'high'
-}
+} & ViewProps
 
-const BaseSliderThumb = ({name}: BaseSliderThumbProps) => {
-  return <View style={styles.rootHigh} />;
+const BaseSliderThumb = ({name, ...props}: BaseSliderThumbProps) => {
+  const styleRoot = name === 'high' ? styles.rootHigh : styles.rootLow
+  return <View
+    {...props}
+    style={[styleRoot, props?.style]}
+  />;
 };
 
 const styles = StyleSheet.create({

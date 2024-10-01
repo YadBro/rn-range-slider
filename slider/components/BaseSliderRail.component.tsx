@@ -1,9 +1,14 @@
 import React, { memo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, type ViewProps } from 'react-native';
 
-const BaseSliderRail = () => {
+export type BaseSliderRailProps = ViewProps
+
+const BaseSliderRail = ({...props}:BaseSliderRailProps) => {
   return (
-    <View style={styles.root}/>
+    <View
+      {...props}
+      style={[styles.root, props?.style]}
+    />
   );
 };
 
