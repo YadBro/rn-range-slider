@@ -6,7 +6,7 @@ import Rail, { type BaseSliderRailProps } from './components/BaseSliderRail.comp
 import RailSelected, { type BaseSliderRailSelectedProps } from './components/BaseSliderRailSelected.component';
 import Thumb, { type BaseSliderThumbProps } from './components/BaseSliderThumb.component';
 
-import Slider, { type SliderProps } from 'rn-range-slider';
+import Slider, { type SliderProps } from '../index';
 import styles from './BaseSlider.style';
 
 export type BaseSliderProps = {
