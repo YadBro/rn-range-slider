@@ -38,7 +38,7 @@ const BaseSlider = ({
     [],
   );
   const renderRail = useCallback(() => <Rail {...railProps} />, []);
-  const renderRailSelected = useCallback(() => <RailSelected {...railProps} />, []);
+  const renderRailSelected = useCallback(() => <RailSelected {...railSelectedProps} />, []);
   const renderLabel = useCallback((value: any) => <Label {...labelProps} text={value} />, []);
   const renderNotch = useCallback(() => <Notch {...notchProps} />, []);
   const handleValueChange = useCallback((lowValue: number, highValue: number) => {
